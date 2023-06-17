@@ -14,11 +14,10 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-SuperApp-SuperAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-SuperApp-SuperAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		86B3E0902A348DF8001F0D2E /* Promise.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B3E08E2A348DF8001F0D2E /* Promise.m */; };
+		86C51C6E2A38744400108B32 /* index.ios-2.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 86C51C6D2A38744400108B32 /* index.ios-2.bundle */; };
 		86E55D8C29F8F2AB00DE11C7 /* ConnectNativeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E55D8B29F8F2AB00DE11C7 /* ConnectNativeModule.m */; };
-		86E55D8F29F8F36D00DE11C7 /* Promise.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E55D8E29F8F36D00DE11C7 /* Promise.m */; };
 		86E55D9229F90D4200DE11C7 /* index.ios-1.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 86E55D9129F90D4100DE11C7 /* index.ios-1.bundle */; };
-		86E55D9529F90DFF00DE11C7 /* ReactBridgeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E55D9429F90DFF00DE11C7 /* ReactBridgeManager.m */; };
-		86E55D9A29F90E7500DE11C7 /* ReactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E55D9929F90E7500DE11C7 /* ReactViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,15 +46,12 @@
 		5B7EB9410499542E8C5724F5 /* Pods-SuperApp-SuperAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperApp-SuperAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SuperApp-SuperAppTests/Pods-SuperApp-SuperAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-SuperApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = SuperApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		86B3E08E2A348DF8001F0D2E /* Promise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Promise.m; sourceTree = "<group>"; };
+		86B3E08F2A348DF8001F0D2E /* Promise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Promise.h; sourceTree = "<group>"; };
+		86C51C6D2A38744400108B32 /* index.ios-2.bundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "index.ios-2.bundle"; sourceTree = "<group>"; };
 		86E55D8B29F8F2AB00DE11C7 /* ConnectNativeModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnectNativeModule.m; sourceTree = "<group>"; };
-		86E55D8D29F8F33F00DE11C7 /* Promise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Promise.h; sourceTree = "<group>"; };
-		86E55D8E29F8F36D00DE11C7 /* Promise.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Promise.m; sourceTree = "<group>"; };
 		86E55D9129F90D4100DE11C7 /* index.ios-1.bundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "index.ios-1.bundle"; sourceTree = "<group>"; };
-		86E55D9329F90DE000DE11C7 /* ReactBridgeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactBridgeManager.h; sourceTree = "<group>"; };
-		86E55D9429F90DFF00DE11C7 /* ReactBridgeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactBridgeManager.m; sourceTree = "<group>"; };
 		86E55D9729F90E5100DE11C7 /* ConnectNativeModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectNativeModule.h; sourceTree = "<group>"; };
-		86E55D9829F90E6B00DE11C7 /* ReactViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactViewController.h; sourceTree = "<group>"; };
-		86E55D9929F90E7500DE11C7 /* ReactViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactViewController.m; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-SuperApp-SuperAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperApp-SuperAppTests.release.xcconfig"; path = "Target Support Files/Pods-SuperApp-SuperAppTests/Pods-SuperApp-SuperAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -100,6 +96,8 @@
 		13B07FAE1A68108700A75B9A /* SuperApp */ = {
 			isa = PBXGroup;
 			children = (
+				86B3E08F2A348DF8001F0D2E /* Promise.h */,
+				86B3E08E2A348DF8001F0D2E /* Promise.m */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -107,13 +105,7 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				86E55D8B29F8F2AB00DE11C7 /* ConnectNativeModule.m */,
-				86E55D8D29F8F33F00DE11C7 /* Promise.h */,
-				86E55D8E29F8F36D00DE11C7 /* Promise.m */,
-				86E55D9329F90DE000DE11C7 /* ReactBridgeManager.h */,
-				86E55D9429F90DFF00DE11C7 /* ReactBridgeManager.m */,
 				86E55D9729F90E5100DE11C7 /* ConnectNativeModule.h */,
-				86E55D9829F90E6B00DE11C7 /* ReactViewController.h */,
-				86E55D9929F90E7500DE11C7 /* ReactViewController.m */,
 			);
 			name = SuperApp;
 			sourceTree = "<group>";
@@ -138,6 +130,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				86C51C6D2A38744400108B32 /* index.ios-2.bundle */,
 				86E55D9129F90D4100DE11C7 /* index.ios-1.bundle */,
 				86E55D9029F8F43900DE11C7 /* Support */,
 				13B07FAE1A68108700A75B9A /* SuperApp */,
@@ -275,6 +268,7 @@
 			files = (
 				86E55D9229F90D4200DE11C7 /* index.ios-1.bundle in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				86C51C6E2A38744400108B32 /* index.ios-2.bundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,9 +441,7 @@
 				86E55D8C29F8F2AB00DE11C7 /* ConnectNativeModule.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
-				86E55D9529F90DFF00DE11C7 /* ReactBridgeManager.m in Sources */,
-				86E55D9A29F90E7500DE11C7 /* ReactViewController.m in Sources */,
-				86E55D8F29F8F36D00DE11C7 /* Promise.m in Sources */,
+				86B3E0902A348DF8001F0D2E /* Promise.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,7 +523,6 @@
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-ObjC",
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
@@ -557,7 +548,6 @@
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-ObjC",
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
@@ -600,7 +590,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;

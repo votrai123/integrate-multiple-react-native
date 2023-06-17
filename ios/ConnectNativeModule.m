@@ -46,51 +46,18 @@ RCT_EXPORT_METHOD(openApp:(NSString *)bundleName appPath:(NSString *)appPath
                                    launchOptions: nil];
         vc = [[UIViewController alloc] init];
         [vc setModalPresentationStyle: UIModalPresentationFullScreen];
+        [emitters setObject: self forKey:bundleName];
         vc.view = rootView;
-
         [[UIApplication sharedApplication].delegate.window.rootViewController presentViewController:vc animated:YES completion:nil];
         closeCallBack = callback;
     });
 }
 
-RCT_EXPORT_METHOD(bringSuperToFront:(RCTResponseSenderBlock)callback)
-{
-    NSMutableDictionary *result = [NSMutableDictionary new];
-    if (vc) {
-        [result setObject:@"Ok" forKey:@"msg"];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [vc dismissViewControllerAnimated:YES completion:nil];
-        });
-    } else {
-        [result setObject:@"Cannot find mini app" forKey:@"msg"];
-    }
-    callback(@[result]);
-}
-
-RCT_EXPORT_METHOD(bringMiniAppToFront:(RCTResponseSenderBlock)callback)
-{
-    NSMutableDictionary *result = [NSMutableDictionary new];
-    if (vc) {
-        [result setObject:@"Ok" forKey:@"msg"];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[UIApplication sharedApplication].delegate.window.rootViewController presentViewController:vc animated:YES completion:nil];
-        });
-    } else {
-        [result setObject:@"Cannot find mini app" forKey:@"msg"];
-    }
-    callback(@[result]);
-}
-
-RCT_EXPORT_METHOD(closeApp:(NSString *)bundleName result:(NSDictionary *)result)
+RCT_EXPORT_METHOD(closeApp:(NSString *)bundleName )
 {
     @try {
         dispatch_async(dispatch_get_main_queue(), ^{
             [vc dismissViewControllerAnimated:YES completion:nil];
-            // check null
-            if(result!=nil){
-                closeCallBack(@[result]);
-            }
-            
             vc = nil;
             closeCallBack = nil;
         });
@@ -143,57 +110,6 @@ RCT_EXPORT_METHOD(replyResponse:(NSString *)requestId response: (NSDictionary *)
     callback(@[result]);
 }
 
-RCT_EXPORT_METHOD(replyError:(NSString *)requestId error: (NSDictionary *)error callback: (RCTResponseSenderBlock)callback) {
-    Promise *promise = [promises objectForKey:requestId];
-    NSMutableDictionary *result = [NSMutableDictionary new];
-    if (promise) {
-        NSError *nsError = [NSError errorWithDomain:@"XFramework" code:0 userInfo:error];
-        promise.reject(@"Error", @"", nsError);
-        [promises removeObjectForKey:requestId];
-        [result setObject:@"Reply error ok!" forKey:@"msg"];
-    } else {
-        NSString *str = @"[replyError] Cannot find promise with id ";
-        str = [str stringByAppendingString:requestId];
-        [result setObject:str forKey:@"msg"];
-    }
-    callback(@[result]);
-}
-
-RCT_REMAP_METHOD(sendRequest,
-                 bundle: (NSString *)bundleName
-                 request:(NSDictionary *)request
-                 resolver:(RCTPromiseResolveBlock)resolve
-                 rejecter:(RCTPromiseRejectBlock)reject)
-{
-    NSString *appId = [request valueForKey:@"appId"];
-    NSString *type = [request valueForKey:@"type"];
-    NSError *error = [NSError errorWithDomain:@"XFramework" code:0 userInfo:nil];
-
-    if (appId == nil || type == nil) {
-        reject(@"Error", @"Invalid request, missing appId or type" , error);
-        return;
-    }
-    
-    NSArray *permission = [whiteList objectForKey:appId];
-    if (permission == nil || ![permission containsObject:type]) {
-        reject(@"Error", @"The request isn't allowed diem" , error);
-        return;
-    }
-    
-    RCTEventEmitter* emitter = [emitters objectForKey: bundleName];
-    if (emitter) {
-        NSString *requestId = [[NSUUID UUID] UUIDString];
-        Promise *promise = [[Promise alloc] initWithResolve:resolve reject:reject];
-        [promises setValue:promise forKey:requestId];
-        [request setValue:requestId forKey:@"id"];
-        [emitter sendEventWithName:@"EventRequest" body:request];
-    } else {
-        NSString *str = @"[sendRequest] Cannot find this bundle name ";
-        str = [str stringByAppendingString:bundleName];
-        reject(@"Error", str , error);
-    }
-}
-
 RCT_REMAP_METHOD(getBundleNames,
                  resolver:(RCTPromiseResolveBlock)resolve
                  rejecter:(RCTPromiseRejectBlock)reject)
@@ -202,7 +118,7 @@ RCT_REMAP_METHOD(getBundleNames,
     if (arr.count > 0) {
         resolve(arr);
     } else {
-        NSError *nsError = [NSError errorWithDomain:@"XFramework" code:0 userInfo:nil];
+        NSError *nsError = [NSError errorWithDomain:@"Error " code:0 userInfo:nil];
         reject(@"Error", @"No listeners", nsError);
     }
 }
