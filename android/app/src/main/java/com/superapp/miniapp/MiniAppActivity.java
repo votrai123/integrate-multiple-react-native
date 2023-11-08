@@ -11,6 +11,7 @@ import com.facebook.react.ReactRootView;
 import com.facebook.react.common.LifecycleState;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
+import com.rnmaps.maps.MapsPackage;
 import com.superapp.BuildConfig;
 import com.superapp.MainActivity;
 
@@ -55,7 +56,8 @@ public class MiniAppActivity extends ReactActivity implements DefaultHardwareBac
     public ArrayList<ReactPackage> getPackages() {
         return new ArrayList<>(Arrays.<ReactPackage>asList(
                 new MainReactPackage(),
-                new ConnectNativePackage()
+                new ConnectNativePackage(),
+                new MapsPackage()
         ));
     }
 

@@ -1,7 +1,7 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-platform :ios, min_ios_version_supported
+platform :ios, '13.0'
 prepare_react_native_project!
 
 # If you are using a `react-native-flipper` your iOS build will fail when `NO_FLIPPER=1` is set.
@@ -23,6 +23,13 @@ end
 
 target 'SuperApp' do
   config = use_native_modules!
+  rn_maps_path = '../node_modules/react-native-maps'
+
+
+
+  pod 'Google-Maps-iOS-Utils', :git => 'https://github.com/Simon-TechForm/google-maps-ios-utils.git', :branch => 'feat/support-apple-silicon'
+  pod 'react-native-google-maps', :path => rn_maps_path
+
 
   # Flags change depending on the env values.
   flags = get_default_flags()
@@ -43,6 +50,21 @@ target 'SuperApp' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  # Force pods to match minimum iOS version for React Native
+  # Fixes build issue on Xcode Cloud where some pods
+  # Use iOS 12 calls despite being set as iOS 11
+  def __apply_Xcode_14_3_RC_post_install_workaround(installer)
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        current_target = config.build_settings['IPHONEOS_DEPLOYMENT_TARGET']
+        minimum_target = min_ios_version_supported
+        if current_target.to_f < minimum_target.to_f
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = minimum_target
+        end
+      end
+    end
+  end
+
   target 'SuperAppTests' do
     inherit! :complete
     # Pods for testing
@@ -62,5 +84,6 @@ target 'SuperApp' do
          end
        end
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
+    __apply_Xcode_14_3_RC_post_install_workaround(installer)
   end
 end
